@@ -1,17 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google"
-
-import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Geist } from "next/font/google"
+import "./globals.css"
 
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
-})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
 })
 
 export default function RootLayout({
@@ -23,9 +17,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", fontSans.variable)}
+      className={cn("antialiased", "font-sans", fontSans.variable)}
     >
-      <body>
+      <body className="mx-auto max-w-4xl p-6">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
